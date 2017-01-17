@@ -1,0 +1,141 @@
+1. Answer:
+
+import java.util.*;
+public class int35 {
+public static void main(String[] args) {
+    int num1, num2;
+    char x;
+    Scanner console = new Scanner(System.in);
+    System.out.println("please enter the first number");
+    num1 = console.nextInt();
+    System.out.println("please enter the second number");
+    num2 = console.nextInt();
+    System.out.println("please enter the arth operation");
+    x=console.next();
+    switch (x) {
+        case '+':
+            System.out.println(num1+num2);
+            break;
+
+        case '-':
+            System.out.println(num1-num2);
+            break;
+
+        case '/':
+            System.out.println(num1/num2);
+            break;
+        case '*':
+            System.out.println(num1*num2);
+            break;
+    }
+}
+
+
+------------------------------------------------------------------------
+2. Answer(solve by using C++)
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+int main()
+{
+    int pictureLength, pictureWidth, pictureSquareInchSize, picturePerimiter, numberOfStars;
+    char frameType;
+    string frameColour;
+    float totalPrice;
+    
+    //values below represent cost per inch
+    const float FRAME_COLOURING_PRICE = 0.10;
+    const float REGULAR_FRAME_PRICE = 0.15;
+    const float FANCY_FRAME_PRICE = 0.25;
+    
+    //values below represent cost per square inch
+    const float CARDBOARD_PRICE = 0.02;
+    const float GLASS_PRICE = 0.07;
+    
+    const float STARS_PRICE = 0.35;
+    
+    cout << "Please enter the length & width of the picture: ";
+    cin >> pictureLength >> pictureWidth;
+    pictureSquareInchSize = pictureLength * pictureWidth;
+    picturePerimiter = (pictureLength * 2) + (pictureWidth * 2);
+    cout << "Please select your frame type (r for regular & f for fancy): ";
+    cin >> frameType;
+    
+    // Calculate cost of the frame type
+    switch (frameType) {
+        case 'r':
+        case 'R':
+            totalPrice = picturePerimiter * REGULAR_FRAME_PRICE;
+            break;
+        case 'f':
+        case 'F':
+            totalPrice = picturePerimiter * FANCY_FRAME_PRICE;
+            break;
+        default:
+            cout << "You entered an invalid fram type" << endl;
+            return 1;
+            break;
+    }
+    
+    cout << "Please enter which colour frame you would like (Note: white is default): ";
+    cin >> frameColour;
+    
+    // Only charge for colouring if they want something other than the default
+    if (frameColour != "white" || frameColour != "") {
+        totalPrice += FRAME_COLOURING_PRICE * picturePerimiter;
+    }
+    
+    cout << "Please enter the total number of stars you wish to have on your frame: ";
+    cin >> numberOfStars;
+    
+    if (numberOfStars > 0) {
+        totalPrice += numberOfStars * STARS_PRICE;
+    }
+    
+    //Calculate costs for glass and cardboard dependent on picture size
+    totalPrice += (GLASS_PRICE * pictureSquareInchSize) + (CARDBOARD_PRICE * pictureSquareInchSize);
+    
+    cout << fixed << showpoint << setprecision(2);
+    cout << "Your total bill for your frame comes to: $" << totalPrice << endl;
+    
+    return 0;
+}
+
+
+
+----------------------------------------------------------------------------------------------------
+3. Answer:
+
+import java.util.*;
+
+public class SumEvenOdd
+{
+    public static void main(String []args)
+    {
+        Scanner keyboard= new Scanner(System.in);
+
+        int counter;
+        int i= 0;
+        int num=0;
+        int sumOdd= 0;
+        int sumEven= 0;
+
+        System.out.println("Enter integers other then Zero: ");
+        num=keyboard.nextInt();
+
+        System.out.println("The numbers you entered are: ");
+
+        for (i =num; i !=0; i=i)
+                {
+                    if (i % 2 == 0)
+                        sumEven = sumEven + i;
+                    else
+                        sumOdd = sumOdd + i;
+                    i = keyboard.nextInt();
+                }
+        System.out.println("Even sum: " + sumEven);
+        System.out.println("Odd sum: " + sumOdd);
+    }
+}
